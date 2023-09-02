@@ -1,6 +1,6 @@
-public class Calculator {
-    private double first;
-    private double second;
+public class Calculator extends Main {
+    double first;
+    double second;
 
     public Calculator(double first, double second) {
         this.first = first;
@@ -23,7 +23,11 @@ public class Calculator {
     }
 
     static void divide(double first, double second) {
-        double result = first / second;
-        System.out.println("Result = " + result);
+        if (second == 0) {
+            System.out.println("Cannot divide by zero. Try again.");
+        } else {
+            double result = first / second;
+            System.out.println("Result = " + result);
+        }
     }
 }

@@ -1,71 +1,51 @@
 import java.util.*;
 
 public class Main {
+    public static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+
         int selection;
+        double first, second;
 
-            //Print menu and take selection input
-       do {
-           System.out.println("\nWelcome to my Basic Calculator\n" + "==============================\n" +
-                   "1. Add\n2. Subtract\n3. Multiply\n4. Divide\n5. Exit\n");
-           System.out.print("Enter selection: ");
-           selection = scanner.nextInt();
-           if (selection == 5) {
-               System.out.println("Goodbye.");
-               System.exit(1);
-           }
+        //Print menu and take selection input
+        do {
+            System.out.println("\nWelcome to my Basic Calculator\n" + "==============================\n" +
+                    "1. Add\n2. Subtract\n3. Multiply\n4. Divide\n5. Exit\n");
+            System.out.print("Enter selection: ");
+            selection = scanner.nextInt();
 
-           System.out.print("Enter first number: ");
-           double first = scanner.nextDouble();
-           System.out.print("Enter second number: ");
-           double second = scanner.nextDouble();
+            if (selection != 5) {
+                System.out.print("Enter first number: ");
+                first = scanner.nextDouble();
+                System.out.print("Enter second number: ");
+                second = scanner.nextDouble();
+            } else {
+                System.out.println("Goodbye.");
+                break;
+            }
 
-           switch (selection) {
-               case 1:
-                   add(first, second);
-                   break;
+            switch (selection) {
+                case 1:
+                    Calculator.add(first, second);
+                    break;
 
-               case 2:
-                   subtract(first, second);
-                   break;
+                case 2:
+                    Calculator.subtract(first, second);
+                    break;
 
-               case 3:
-                   multiply(first, second);
-                   break;
+                case 3:
+                    Calculator.multiply(first, second);
+                    break;
 
-               case 4:
-                   divide(first, second);
-                   break;
+                case 4:
+                    Calculator.divide(first, second);
+                    break;
 
-               case 5:
-                   System.out.println("Exiting...");
-                   break;
-
-               default:
-                   System.out.println("Invalid option. Try again.");
-                   break;
-           }
-       } while (selection >= 5);
-    }
-    static void add(double first, double second) {
-        double result = first + second;
-        System.out.println("Result = " + result);
-    }
-
-    static void subtract(double first, double second) {
-        double result = first - second;
-        System.out.println("Result = " + result);
-    }
-
-    static void multiply(double first, double second) {
-        double result = first * second;
-        System.out.println("Result = " + result);
-    }
-
-    static void divide(double first, double second) {
-        double result = first / second;
-        System.out.println("Result = " + result);
+                default:
+                    System.out.println("Invalid menu option. Try again.");
+                    break;
+            }
+        } while (selection != 5);
     }
 }
