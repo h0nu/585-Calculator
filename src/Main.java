@@ -10,8 +10,16 @@ public class Main {
 
         //Print menu and take selection input
         do {
-            System.out.println("\nWelcome to my Basic Calculator\n" + "==============================\n" +
-                    "1. Add\n2. Subtract\n3. Multiply\n4. Divide\n5. Exit\n");
+            System.out.println("""
+
+                    Welcome to my Basic Calculator
+                    ==============================
+                    1. Add
+                    2. Subtract
+                    3. Multiply
+                    4. Divide
+                    5. Exit
+                    """);
             System.out.print("Enter selection: ");
             selection = scanner.nextInt();
 
@@ -26,25 +34,11 @@ public class Main {
             }
 
             switch (selection) {
-                case 1:
-                    Calculator.add(first, second);
-                    break;
-
-                case 2:
-                    Calculator.subtract(first, second);
-                    break;
-
-                case 3:
-                    Calculator.multiply(first, second);
-                    break;
-
-                case 4:
-                    Calculator.divide(first, second);
-                    break;
-
-                default:
-                    System.out.println("Invalid menu option. Try again.");
-                    break;
+                case 1 -> Calculator.add(first, second);
+                case 2 -> Calculator.subtract(first, second);
+                case 3 -> Calculator.multiply(first, second);
+                case 4 -> Calculator.divide(first, second);
+                default -> System.out.println("Invalid menu option. Try again.");
             }
         } while (selection != 5);
     }
